@@ -1,8 +1,9 @@
-import { MaterialIcons } from "@expo/vector-icons";
-import { Href, Link, useNavigation } from "expo-router";
-import { useCallback, useEffect } from "react";
-import { TouchableOpacity, StyleSheet, Dimensions, Text, View } from "react-native";
-import Animated, { useSharedValue, useAnimatedStyle, withTiming, Easing } from "react-native-reanimated";
+import React from 'react';
+import { MaterialIcons } from '@expo/vector-icons';
+import { Href, Link, useNavigation } from 'expo-router';
+import { useCallback, useEffect } from 'react';
+import { TouchableOpacity, StyleSheet, Dimensions, Text } from 'react-native';
+import Animated, { useSharedValue, useAnimatedStyle, withTiming, Easing } from 'react-native-reanimated';
 
 const {width} = Dimensions.get('window');
 const itemMargin = 32;
@@ -17,16 +18,16 @@ const ScreenButton: React.ComponentType<ScreenButtonProps> = ({ item }) => {
   const opacity = useSharedValue(0);
   const rStyle = useAnimatedStyle(() => ({
     opacity: opacity.value,
-    transform: [{ scale: scale.value }]
+    transform: [{ scale: scale.value }],
   }));
   const navigation = useNavigation();
 
   useEffect(() => {
     scale.value = withTiming(1, {duration: 1000, easing: Easing.elastic(1.1)});
     opacity.value = withTiming(1, {duration: 1000, easing: Easing.linear});
-  }, []);
+  }, [opacity, scale]);
 
-  const goToInfo = useCallback(() => navigation.navigate('info', { info: item.info }), []);
+  const goToInfo = useCallback(() => navigation.navigate('info', { info: item.info }), [item.info, navigation]);
 
   return (
     <Animated.View style={[styles.item, rStyle]}>
@@ -40,7 +41,7 @@ const ScreenButton: React.ComponentType<ScreenButtonProps> = ({ item }) => {
       </TouchableOpacity>
     </Animated.View>
   );
-}
+};
 
 const styles = StyleSheet.create({
   item: {
@@ -77,5 +78,5 @@ const styles = StyleSheet.create({
     alignItems: 'flex-end',
     paddingRight: 12,
   },
-})
+});
 export default ScreenButton;

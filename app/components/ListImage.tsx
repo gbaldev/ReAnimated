@@ -1,7 +1,7 @@
-import React from "react";
-import { Dimensions, StyleProp, View, ViewStyle } from "react-native";
+import React from 'react';
+import { Dimensions, StyleProp, ViewStyle } from 'react-native';
 import styles from './styles';
-import Animated, { SharedValue, interpolate, useAnimatedStyle } from "react-native-reanimated";
+import Animated, { SharedValue, interpolate, useAnimatedStyle } from 'react-native-reanimated';
 
 interface ListImageComponent {
   uri: string,
@@ -31,13 +31,13 @@ const ListImage: React.ComponentType<ListImageComponent> = ({ uri, style = {}, i
 
 
     return ({
-      transform: [{ scale }]
-    })
-  })
+      transform: [{ scale }],
+    });
+  });
   const rStyle = useAnimatedStyle(() => {
-    const xOutputRange = [-width/2, 0, width/2];
+    const xOutputRange = [-width / 2, 0, width / 2];
     const yOutputRange = [-20, 0, 20];
-    
+
     const translateX = interpolate(
       scrollOffset.value,
       inputRange,
@@ -51,14 +51,14 @@ const ListImage: React.ComponentType<ListImageComponent> = ({ uri, style = {}, i
     );
 
     return ({
-      transform: [{ translateX }, { scale: 1.6 }, { translateY }]
+      transform: [{ translateX }, { scale: 1.6 }, { translateY }],
     });
   });
   return (
     <Animated.View style={[style, {overflow: 'hidden', borderRadius: 20}, rViewStyle]}>
       <Animated.Image resizeMode={'cover'} source={{ uri }} style={[styles.image, {width: imageWidth}, rStyle]} />
     </Animated.View>
-  )
-}
+  );
+};
 
 export default ListImage;

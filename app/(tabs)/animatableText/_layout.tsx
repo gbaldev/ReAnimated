@@ -7,7 +7,7 @@ import { Text as SkiaText } from '@shopify/react-native-skia';
 import styles from './styles';
 import GoBack from '@/app/components/GoBack';
 
-export default function animatableText() {
+export default function AnimatableText() {
   const count = useSharedValue(0);
   const counstString = useDerivedValue(() => {
     return Math.floor(count.value).toString();
@@ -29,7 +29,7 @@ export default function animatableText() {
   const updateCount = () => {
     const nextCount = Math.floor(Math.random() * 100);
     count.value = withTiming(nextCount, {duration: 1000});
-  }
+  };
 
   return (
     <View style={styles.container}>
@@ -43,7 +43,7 @@ export default function animatableText() {
           />
         </SkiaText>
       </Canvas>
-      
+
       <TouchableOpacity onPress={updateCount} style={styles.floating}>
         <FontAwesome name="random" size={24} color={'black'} />
       </TouchableOpacity>

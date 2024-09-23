@@ -7,9 +7,9 @@ import styles, { CircleRadius } from './styles';
 
 const {width, height} = Dimensions.get('window');
 
-export default function spatialTapGesture() {
-  const left = useSharedValue(width/2 - CircleRadius);
-  const top = useSharedValue(height/2 - CircleRadius);
+export default function SpatialTapGesture() {
+  const left = useSharedValue(width / 2 - CircleRadius);
+  const top = useSharedValue(height / 2 - CircleRadius);
   const previousLeft = useSharedValue(0);
   const previousTop = useSharedValue(0);
   const scale = useSharedValue(0);
@@ -24,36 +24,36 @@ export default function spatialTapGesture() {
     top.value = absoluteY - CircleRadius;
     left.value = absoluteX - CircleRadius;
   });
-  
+
   const rActualStyle = useAnimatedStyle(() => ({
     position: 'absolute',
     left: left.value,
     top: top.value,
-    transform: [{ scale: scale.value }]
+    transform: [{ scale: scale.value }],
   }));
 
   const rPrevStyle = useAnimatedStyle(() => ({
     position: 'absolute',
     left: previousLeft.value,
     top: previousTop.value,
-    transform: [{ scale: prevScale.value }]
+    transform: [{ scale: prevScale.value }],
   }));
 
-  
+
   const animatedLeft = useDerivedValue(() => {
     return withTiming(left.value, {
       duration: 1000,
-      easing: Easing.inOut(Easing.quad)
+      easing: Easing.inOut(Easing.quad),
     });
   });
-  
+
   const animatedTop = useDerivedValue(() => {
     return withTiming(top.value,  {
       duration: 1000,
-      easing: Easing.inOut(Easing.quad)
+      easing: Easing.inOut(Easing.quad),
     });
   });
-  
+
   const rMovingStyle = useAnimatedStyle(() => ({
     position: 'absolute',
     left: animatedLeft.value,
@@ -61,10 +61,10 @@ export default function spatialTapGesture() {
   }));
 
   useAnimatedReaction(() => {
-    return left.value
+    return left.value;
   }, (current, prev) => {
     if (current !== prev && current !== 0) {
-      cancelAnimation(scale)
+      cancelAnimation(scale);
       scale.value = 0;
       scale.value = withSpring(1);
     }

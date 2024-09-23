@@ -1,8 +1,10 @@
-import { MaterialIcons } from "@expo/vector-icons";
-import { PropsWithChildren } from "react";
-import { StyleProp, View, Text, ViewStyle, StyleSheet } from "react-native";
-import { Gesture, GestureDetector } from "react-native-gesture-handler";
-import Animated, { runOnJS, useAnimatedStyle, useSharedValue, withTiming } from "react-native-reanimated";
+
+import React from 'react';
+import { MaterialIcons } from '@expo/vector-icons';
+import { PropsWithChildren } from 'react';
+import { StyleProp, Text, ViewStyle, StyleSheet } from 'react-native';
+import { Gesture, GestureDetector } from 'react-native-gesture-handler';
+import Animated, { runOnJS, useAnimatedStyle, useSharedValue, withTiming } from 'react-native-reanimated';
 
 interface TouchableFeedbackProps {
   onPress?: () => void;
@@ -12,10 +14,10 @@ interface TouchableFeedbackProps {
 const TouchableFeedback: React.ComponentType<PropsWithChildren<TouchableFeedbackProps>> = ({
   children,
   onPress,
-  style
+  style,
 }) => {
   const isActive = useSharedValue<boolean>(false);
-  const isButton = typeof children === 'string' || typeof children === 'number'
+  const isButton = typeof children === 'string' || typeof children === 'number';
   const tap = Gesture.Tap()
     .onBegin(() => {
       if (isButton) {
@@ -39,23 +41,23 @@ const TouchableFeedback: React.ComponentType<PropsWithChildren<TouchableFeedback
         isActive.value ? 'rgba(255,255,255, 0.1)' : 'transparent',
       ),
       transform: [
-        { scale : withTiming(isActive.value ? 0.95 : 1) }
-      ]
-    }
+        { scale : withTiming(isActive.value ? 0.95 : 1) },
+      ],
+    };
   }, []);
 
   return (
     <GestureDetector gesture={tap}>
       <Animated.View style={[style, rButtonStyle]}>
         {children === 'backspace' ? (
-          <MaterialIcons name={'backspace'} size={30} color='white' />
+          <MaterialIcons name={'backspace'} size={30} color="white" />
         ) : (
           <Text style={styles.label}>{children}</Text>
         )}
       </Animated.View>
     </GestureDetector>
-  )
-}
+  );
+};
 
 const styles = StyleSheet.create({
   label: {
@@ -63,7 +65,7 @@ const styles = StyleSheet.create({
     fontFamily: 'SF-Pro-Rounded-Bold',
     fontSize: 30,
     fontWeight: 'bold',
-  }
+  },
 });
 
 export default TouchableFeedback;

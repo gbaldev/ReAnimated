@@ -3,7 +3,7 @@ import GoBack from '@/app/components/GoBack';
 import React from 'react';
 import { StyleSheet, SafeAreaView } from 'react-native';
 
-export default function bottomTabAnimation() {
+export default function Home() {
   return (
     <SafeAreaView style={styles.container}>
       <GoBack />

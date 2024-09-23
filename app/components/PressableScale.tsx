@@ -18,7 +18,7 @@ type PressableScaleProps = {
 const PressableScale: React.FC<PressableScaleProps> = React.memo(
   ({ children, onPress, style, minScale = 0.95, ...props }) => {
     const onPressWrapper = useCallback(() => {
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+
       return (onPress as any)?.();
     }, [onPress]);
 
@@ -31,7 +31,7 @@ const PressableScale: React.FC<PressableScaleProps> = React.memo(
       })
       .onTouchesUp(() => {
         scale.value = withSpring(1, { overshootClamping: true }, isFinished => {
-          if (isFinished) runOnJS(onPressWrapper)();
+          if (isFinished) {runOnJS(onPressWrapper)();}
         });
       })
       .onTouchesCancelled(() => {

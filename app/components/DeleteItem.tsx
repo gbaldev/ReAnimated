@@ -1,16 +1,16 @@
-import { MaterialIcons } from "@expo/vector-icons";
-import React from "react";
-import { StyleSheet } from "react-native";
-import AnimatedTouchableOpacity from "./AnimatedTouchableOpacity";
-import { StretchInX, StretchOutX } from "react-native-reanimated";
+import { MaterialIcons } from '@expo/vector-icons';
+import React from 'react';
+import { StyleSheet } from 'react-native';
+import AnimatedTouchableOpacity from './AnimatedTouchableOpacity';
+import { StretchInX, StretchOutX } from 'react-native-reanimated';
 
 const DeleteItem: React.ComponentType<{ onPress: () => void }> = ({ onPress }) => {
   return (
     <AnimatedTouchableOpacity entering={StretchInX} exiting={StretchOutX} onPress={onPress} style={styles.button}>
-      <MaterialIcons name='delete' size={32} color={'black'} />
+      <MaterialIcons name="delete" size={32} color={'black'} />
     </AnimatedTouchableOpacity>
-  )
-}
+  );
+};
 
 const styles = StyleSheet.create({
   button: {

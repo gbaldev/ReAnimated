@@ -6,7 +6,7 @@ import GoBack from '@/app/components/GoBack';
 
 const MaxTranslationAmount = 100;
 
-export default function bouncingSqare() {
+export default function BouncingSqare() {
   const scale = useSharedValue(1);
   const rotate = useSharedValue(0);
   const translateX = useSharedValue(0);
@@ -19,19 +19,19 @@ export default function bouncingSqare() {
       { scale: scale.value },
       { rotate: `${rotate.value}deg`},
     ],
-  })); 
+  }));
 
   const move = useCallback(() => {
     const tX = Math.random() * MaxTranslationAmount * 2 - MaxTranslationAmount;
     const tY = Math.random() * MaxTranslationAmount * 2 - MaxTranslationAmount;
     translateX.value = withSpring(tX);
     translateY.value = withSpring(tY);
-  }, []);
+  }, [translateX, translateY]);
 
   return (
     <SafeAreaView style={styles.container}>
       <GoBack />
-      <Animated.View 
+      <Animated.View
         onTouchStart={() => {
           scale.value = withTiming(1.2);
         }}

@@ -1,5 +1,5 @@
-import { Redirect } from "expo-router";
+import { Redirect } from 'expo-router';
 
 export default function EntryPoint() {
-  return <Redirect href={'/bottomTabAnimation/Home'} />
+  return <Redirect href={'/bottomTabAnimation/Home'} />;
 }

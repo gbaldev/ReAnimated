@@ -6,7 +6,7 @@ import AnimatedNumber from '@/app/components/AnimatedNumber';
 import ButtonsGrid, { ButtonItem } from '@/app/components/ButtonsGrid';
 import styles from './styles';
 
-export default function familyNumberInput() {
+export default function FamilyNumberInput() {
   const [number, setNumber] = useState<string>('');
 
   const handleOnPress = useCallback((item: ButtonItem) => {
@@ -21,7 +21,7 @@ export default function familyNumberInput() {
       setNumber(p => `${p}${item}`);
     }
   }, [number]);
-  
+
   return (
     <SafeAreaView style={styles.container}>
       <GoBack />

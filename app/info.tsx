@@ -1,8 +1,9 @@
-import { BlurView } from "expo-blur";
-import { router, useLocalSearchParams } from "expo-router";
-import { useCallback, useState } from "react";
-import { View, Text, StyleSheet } from "react-native";
-import Animated, { SlideInRight, SlideOutLeft } from "react-native-reanimated";
+import React from 'react';
+import { BlurView } from 'expo-blur';
+import { router, useLocalSearchParams } from 'expo-router';
+import { useCallback, useState } from 'react';
+import { View, StyleSheet } from 'react-native';
+import Animated, { SlideInRight, SlideOutLeft } from 'react-native-reanimated';
 
 interface InfoProps {}
 
@@ -12,17 +13,17 @@ const Info: React.ComponentType<InfoProps> = () => {
   const goBack = useCallback(() => {
     setDisplay(false);
     setTimeout(() => {
-      router.back()
+      router.back();
     }, 200);
   }, []);
 
   return (
     <View style={styles.container} onTouchEnd={goBack}>
-      <BlurView style={styles.blur} intensity={25} tint='systemMaterialDark'/>
+      <BlurView style={styles.blur} intensity={25} tint="systemMaterialDark"/>
       {display && <Animated.Text style={styles.text} entering={SlideInRight} exiting={SlideOutLeft}>{info}</Animated.Text>}
     </View>
-  )
-}
+  );
+};
 
 const styles = StyleSheet.create({
   container: {
@@ -41,7 +42,7 @@ const styles = StyleSheet.create({
   },
   blur: {
     ...StyleSheet.absoluteFillObject,
-    backgroundColor: 'rgba(0,0,0,0.5)', 
-  }
-})
+    backgroundColor: 'rgba(0,0,0,0.5)',
+  },
+});
 export default Info;

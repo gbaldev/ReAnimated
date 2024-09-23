@@ -1,5 +1,5 @@
-import { useMemo } from "react";
-import { Keyframe } from "react-native-reanimated";
+import { useMemo } from 'react';
+import { Keyframe } from 'react-native-reanimated';
 
 export const useCustomKeyFrames = () => {
   const Perspective = 150;
@@ -12,7 +12,7 @@ export const useCustomKeyFrames = () => {
   const finalKeyFrame = {
     opacity: 1,
     transform: [{ perspective: Perspective }, { rotateX: '0deg' }, { translateY: 0 }],
-  }
+  };
 
   const FlipIn = new Keyframe({
     from: initialKeyFrame,
@@ -30,6 +30,6 @@ export const useCustomKeyFrames = () => {
       FlipOut,
     }), [
       FlipIn,
-      FlipOut
+      FlipOut,
     ]);
-}
+};

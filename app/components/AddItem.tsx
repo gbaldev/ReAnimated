@@ -1,14 +1,14 @@
-import { MaterialIcons } from "@expo/vector-icons";
-import React from "react";
-import { StyleSheet, TouchableOpacity } from "react-native";
+import { MaterialIcons } from '@expo/vector-icons';
+import React from 'react';
+import { StyleSheet, TouchableOpacity } from 'react-native';
 
 const AddItem: React.ComponentType<{ onPress: () => void }> = ({ onPress }) => {
   return (
     <TouchableOpacity onPress={onPress} style={styles.button}>
-      <MaterialIcons name='plus-one' size={32} color={'black'} />
+      <MaterialIcons name="plus-one" size={32} color={'black'} />
     </TouchableOpacity>
-  )
-}
+  );
+};
 
 const styles = StyleSheet.create({
   button: {

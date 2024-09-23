@@ -1,5 +1,6 @@
-import Animated, { useAnimatedStyle, withTiming } from "react-native-reanimated";
-import { PropsWithChildren } from "react";
+import React from 'react';
+import Animated, { useAnimatedStyle, withTiming } from 'react-native-reanimated';
+import { PropsWithChildren } from 'react';
 
 interface AnimatedShowableViewProps {
   isVisible?: boolean;
@@ -12,7 +13,7 @@ const AnimatedShowableView: React.ComponentType<PropsWithChildren<AnimatedShowab
       flex: 1,
       alignItems: 'center',
       opacity: withTiming(isVisible ? 1 : minOpacity),
-    }
+    };
   }, [isVisible]);
 
   return (
@@ -20,6 +21,6 @@ const AnimatedShowableView: React.ComponentType<PropsWithChildren<AnimatedShowab
       {children}
     </Animated.View>
   );
-}
+};
 
 export default AnimatedShowableView;
