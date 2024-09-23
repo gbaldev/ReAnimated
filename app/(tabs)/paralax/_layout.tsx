@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, SafeAreaView, Dimensions } from 'react-native';
+import { SafeAreaView } from 'react-native';
 import Animated, { useAnimatedRef, useScrollViewOffset } from 'react-native-reanimated';
 import { Images } from '../../constants';
 import styles, { ItemContainerWidth, ItemInternalPadding, ListItemWidth } from './styles';
@@ -9,10 +9,10 @@ import ListImage from '@/app/components/ListImage';
 
 
 
-export default function paralax() {
+export default function Paralax() {
   const scrollRef = useAnimatedRef<Animated.ScrollView>();
   const scrollOffset = useScrollViewOffset(scrollRef);
-  
+
   return (
     <SafeAreaView style={styles.container}>
       <GoBack />

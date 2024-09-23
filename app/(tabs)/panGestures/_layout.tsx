@@ -1,12 +1,11 @@
 import GoBack from '@/app/components/GoBack';
 import React from 'react';
-import { StyleSheet, View } from 'react-native';
+import { View } from 'react-native';
 import { Gesture, GestureDetector } from 'react-native-gesture-handler';
 import Animated, {useAnimatedStyle, useDerivedValue, useSharedValue, withSpring, withTiming } from 'react-native-reanimated';
+import styles from './styles';
 
-const SqareSize = 120;
-
-export default function panGestures() {
+export default function PanGestures() {
   const translateX = useSharedValue(0);
   const translateY = useSharedValue(0);
   const isDragging = useSharedValue(false);
@@ -25,7 +24,7 @@ export default function panGestures() {
       // update based in new values considering previous state.
       translateX.value = context.value.x + translationX;
       translateY.value = context.value.y + translationY;
-      })
+    })
     .onFinalize(() => {
       isDragging.value = false;
     });
@@ -39,32 +38,32 @@ export default function panGestures() {
   }, []);
 
   const color = useDerivedValue(() => {
-    if (isDragging.value) { 
+    if (isDragging.value) {
       return '#632300';
     }
 
     const isInWhiteSpace = translateY.value < 0;
     const isInBlackSpace = translateY.value > 0;
-    
+
     if (isInWhiteSpace) {
       return '#000';
-    } 
+    }
 
     if (isInBlackSpace) {
       return '#fff';
     }
 
-    return '#632300'
+    return '#632300';
   }, []);
 
   const animatedColor = useDerivedValue(() => {
     return withTiming(color.value);
   }, []);
-  
+
   const animatedBorderWidth = useDerivedValue(() => {
-    return withTiming(color.value === '#fff'|| isDragging.value ? 0 : 1);
+    return withTiming(color.value === '#fff' || isDragging.value ? 0 : 1);
   }, []);
-  
+
   const rStyle = useAnimatedStyle(() => ({
     borderWidth: animatedBorderWidth.value,
     borderColor: 'white',
@@ -75,13 +74,13 @@ export default function panGestures() {
       { rotate: rotate.value },
       { scale: scale.value },
     ],
-  })); 
+  }));
 
   return (
     <View style={styles.container}>
       <GoBack />
       <GestureDetector gesture={panGesture}>
-        <Animated.View 
+        <Animated.View
           style={[styles.sqare, rStyle]}
         />
       </GestureDetector>
@@ -89,27 +88,3 @@ export default function panGestures() {
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  sqare: {
-    height: SqareSize,
-    width: SqareSize,
-    backgroundColor: '#632300',
-    borderRadius: 25,
-    borderCurve: 'continuous',
-  },
-  background: {
-    zIndex: -1,
-    position: 'absolute',
-    top: '50%',
-    left: 0,
-    width: '100%',
-    height: '50%',
-    backgroundColor: '#000',
-  },
-});

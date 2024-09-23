@@ -1,4 +1,5 @@
-import { StyleSheet, Text, View } from 'react-native';
+import React from 'react';
+import { Text, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { AntDesign } from '@expo/vector-icons';
 import { useMemo } from 'react';
@@ -49,7 +50,7 @@ export default function HomeScreen() {
         </PressableScale>
       </View>
     );
-  }, [navigation]);
+  }, [navigation, prepareTransition]);
 
   return (
     <View style={{ flex: 1, backgroundColor: Palette.background }}>
@@ -67,7 +68,7 @@ export default function HomeScreen() {
         showsVerticalScrollIndicator={false}
         keyExtractor={item => item.id}
         // MasonryList is not retrieving the correct type for renderItem
-        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+
         // @ts-ignore
         renderItem={({ item, i: index }: { item: NoteType; i: number }) => {
           return (

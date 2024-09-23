@@ -1,3 +1,4 @@
+import React from 'react';
 import { View, StyleSheet, Text, TextInput, Alert } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { useCallback, useRef } from 'react';
@@ -23,7 +24,7 @@ export default function DetailScreen() {
   const onClose = useCallback(async () => {
     runTransition();
     setTimeout(() => goBack(), 1000);
-  }, [goBack]);
+  }, [goBack, runTransition]);
 
   const onSave = useCallback(async () => {
     if (!noteText.current) {
@@ -44,7 +45,7 @@ export default function DetailScreen() {
     });
 
     goBack();
-  }, [goBack, setNotes]);
+  }, [goBack, runTransition, setNotes]);
 
   const { top: safeTop } = useSafeAreaInsets();
 

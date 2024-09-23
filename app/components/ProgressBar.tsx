@@ -1,7 +1,7 @@
 import { AntDesign } from '@expo/vector-icons';
 import React from 'react';
-import { StyleSheet, View, Text } from 'react-native';
-import Animated, { SharedValue, useAnimatedStyle, useDerivedValue } from 'react-native-reanimated';
+import { StyleSheet, View } from 'react-native';
+import Animated, { SharedValue, useDerivedValue } from 'react-native-reanimated';
 import { MIN_PROGRESS_INIDICATOR_SIZE, useProgressBar } from './hooks';
 import { ReText } from 'react-native-redash';
 
@@ -13,25 +13,25 @@ interface ProgresBarrComponent {
 
 const ProgressBar: React.ComponentType<ProgresBarrComponent> = ({timeLeft = 1, progress, scrollToTop = () => {}}) => {
   const {rIconStyle, rReadedStyle, rReadingStyle, rStyle, rTextStyle, rProgressLabel} = useProgressBar(progress);
-  
+
   const perc = useDerivedValue(() => {
     return `${Math.floor(progress.value * 100).toString()}%`;
-  })
+  });
   return (
     <View style={styles.container}>
       <Animated.View style={[styles.timeLeft, rStyle]}>
         <Animated.Text style={[styles.text, rTextStyle]}>{timeLeft} {timeLeft > 1 ? 'mins' : 'min'}</Animated.Text>
         <Animated.View style={[styles.arrow, rIconStyle]} onTouchEnd={scrollToTop}>
-          <AntDesign name={"arrowup"} size={32} color={'#979797'} />
+          <AntDesign name={'arrowup'} size={32} color={'#979797'} />
         </Animated.View>
         <ReText text={perc} style={rProgressLabel} />
         <Animated.View style={[rReadingStyle]}>
-            <Animated.View style={[styles.bar, rReadedStyle]}/>
+          <Animated.View style={[styles.bar, rReadedStyle]}/>
         </Animated.View>
       </Animated.View>
     </View>
-  )
-}
+  );
+};
 
 const styles = StyleSheet.create({
   container: {
@@ -64,4 +64,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default ProgressBar
+export default ProgressBar;

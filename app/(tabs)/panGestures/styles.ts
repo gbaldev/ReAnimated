@@ -1,18 +1,17 @@
 import { StyleSheet } from 'react-native';
 
-export const CircleRadius = 15;
-
+const SqareSize = 120;
 export default StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
   },
-  baseCircle: {
-    height: CircleRadius * 2,
-    width: CircleRadius * 2,
-    backgroundColor: '#2f2f2f',
-    borderRadius: CircleRadius,
+  sqare: {
+    height: SqareSize,
+    width: SqareSize,
+    backgroundColor: '#632300',
+    borderRadius: 25,
     borderCurve: 'continuous',
   },
   background: {

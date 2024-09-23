@@ -1,4 +1,5 @@
-import { Stack } from "expo-router";
+import React from 'react';
+import { Stack } from 'expo-router';
 
 const Layout = () => {
   return (
@@ -11,13 +12,13 @@ const Layout = () => {
           headerTransparent: true,
           headerTitleStyle: {
             color: 'white',
-          }
+          },
         }}
       />
       <Stack.Screen
         name="detail"
         options={{
-          headerShown: false
+          headerShown: false,
         }}
       />
     </Stack>

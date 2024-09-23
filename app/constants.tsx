@@ -1,3 +1,6 @@
+import { Feather, Ionicons, Octicons } from '@expo/vector-icons';
+import { glsl } from './(tabs)/helpers/shaderLib';
+
 export const Images = [
   'https://cdn.pixabay.com/photo/2023/07/21/16/23/cat-8141916_1280.jpg',
   'https://cdn.pixabay.com/photo/2013/12/05/18/27/cheetah-223734_1280.jpg',
@@ -11,218 +14,215 @@ export const Images = [
 ];
 
 export const sentences = [
-    "The sun rises slowly",
-    "Gentle breeze whispers secrets",
-    "Laughter echoes through halls",
-    "Stars twinkle in darkness",
-    "Raindrops dance on rooftops",
-    "Waves crash on shore",
-    "Leaves rustle in wind",
-    "Birds sing morning songs",
-    "Flowers bloom in spring",
-    "Snow blankets the ground",
-    "Moonlight illuminates the path",
-    "Campfire crackles and glows",
-    "Thunder rumbles in distance",
-    "Rainbow arches across sky",
-    "Butterflies flutter by gently",
-    "Shadows lengthen at sunset",
-    "Fog rolls over hills",
-    "Autumn leaves fall softly",
-    "Dewdrops glisten on grass",
-    "Clock ticks time away",
-    "Whispers carry on wind",
-    "Footsteps echo in silence",
-    "Candlelight flickers in darkness",
-    "Pages turn in book",
-    "Pencil scratches on paper",
-    "Coffee brews in morning",
-    "Keyboard clicks rhythmically",
-    "Phone buzzes with notification",
-    "Dog barks in distance",
-    "Cat purrs contentedly",
-    "Child laughs with joy",
-    "Baby coos and gurgles",
-    "Teenager sighs dramatically",
-    "Adult ponders life choices",
-    "Elder shares wise words",
-    "Friends chat over coffee",
-    "Lovers walk hand in hand",
-    "Family gathers for dinner",
-    "Strangers pass on street",
-    "Teacher instructs the class",
-    "Student raises hand eagerly",
-    "Artist paints vibrant scene",
-    "Musician strums guitar strings",
-    "Chef creates culinary masterpiece",
-    "Athlete pushes physical limits",
-    "Writer crafts vivid worlds",
-    "Dancer moves with grace",
-    "Actor delivers powerful performance",
-    "Scientist conducts groundbreaking research",
-    "Engineer solves complex problems",
-    "Doctor heals the sick",
-    "Farmer tends the crops",
-    "Gardener nurtures delicate flowers",
-    "Architect designs stunning buildings",
-    "Photographer captures fleeting moments",
-    "Singer hits high note",
-    "Politician debates current issues",
-    "Firefighter battles raging inferno",
-    "Police officer maintains public order",
-    "Pilot navigates through clouds",
-    "Sailor braves stormy seas",
-    "Hiker explores mountain trails",
-    "Diver plunges into depths",
-    "Climber scales steep cliffs",
-    "Skier glides down slopes",
-    "Surfer rides ocean waves",
-    "Cyclist pedals winding roads",
-    "Runner crosses finish line",
-    "Swimmer cuts through water",
-    "Gymnast performs graceful routine",
-    "Weightlifter hoists heavy barbell",
-    "Archer hits bullseye",
-    "Golfer sinks difficult putt",
-    "Tennis player serves ace",
-    "Basketball player scores three-pointer",
-    "Soccer player kicks winning goal",
-    "Baseball player hits home run",
-    "Hockey player scores hat trick",
-    "Volleyball player spikes ball",
-    "Cricket player bowls perfect over",
-    "Rugby player scores try",
-    "Boxer lands knockout punch",
-    "Fencer parries opponent's thrust",
-    "Skater lands triple axel",
-    "Bowler rolls perfect game",
-    "Jockey races to victory",
-    "Racecar driver takes checkered flag",
-    "Chess player declares checkmate",
-    "Poker player goes all in",
-    "Magician performs mind-bending illusion",
-    "Comedian delivers hilarious punchline",
-    "Juggler keeps balls airborne",
-    "Acrobat defies gravity",
-    "Storyteller weaves captivating tale",
-    "Poet recites moving verse",
-    "Balloon floats on breeze",
-    "Fireworks explode in sky",
-    "Time flies by quickly"
-  ];
+  'The sun rises slowly',
+  'Gentle breeze whispers secrets',
+  'Laughter echoes through halls',
+  'Stars twinkle in darkness',
+  'Raindrops dance on rooftops',
+  'Waves crash on shore',
+  'Leaves rustle in wind',
+  'Birds sing morning songs',
+  'Flowers bloom in spring',
+  'Snow blankets the ground',
+  'Moonlight illuminates the path',
+  'Campfire crackles and glows',
+  'Thunder rumbles in distance',
+  'Rainbow arches across sky',
+  'Butterflies flutter by gently',
+  'Shadows lengthen at sunset',
+  'Fog rolls over hills',
+  'Autumn leaves fall softly',
+  'Dewdrops glisten on grass',
+  'Clock ticks time away',
+  'Whispers carry on wind',
+  'Footsteps echo in silence',
+  'Candlelight flickers in darkness',
+  'Pages turn in book',
+  'Pencil scratches on paper',
+  'Coffee brews in morning',
+  'Keyboard clicks rhythmically',
+  'Phone buzzes with notification',
+  'Dog barks in distance',
+  'Cat purrs contentedly',
+  'Child laughs with joy',
+  'Baby coos and gurgles',
+  'Teenager sighs dramatically',
+  'Adult ponders life choices',
+  'Elder shares wise words',
+  'Friends chat over coffee',
+  'Lovers walk hand in hand',
+  'Family gathers for dinner',
+  'Strangers pass on street',
+  'Teacher instructs the class',
+  'Student raises hand eagerly',
+  'Artist paints vibrant scene',
+  'Musician strums guitar strings',
+  'Chef creates culinary masterpiece',
+  'Athlete pushes physical limits',
+  'Writer crafts vivid worlds',
+  'Dancer moves with grace',
+  'Actor delivers powerful performance',
+  'Scientist conducts groundbreaking research',
+  'Engineer solves complex problems',
+  'Doctor heals the sick',
+  'Farmer tends the crops',
+  'Gardener nurtures delicate flowers',
+  'Architect designs stunning buildings',
+  'Photographer captures fleeting moments',
+  'Singer hits high note',
+  'Politician debates current issues',
+  'Firefighter battles raging inferno',
+  'Police officer maintains public order',
+  'Pilot navigates through clouds',
+  'Sailor braves stormy seas',
+  'Hiker explores mountain trails',
+  'Diver plunges into depths',
+  'Climber scales steep cliffs',
+  'Skier glides down slopes',
+  'Surfer rides ocean waves',
+  'Cyclist pedals winding roads',
+  'Runner crosses finish line',
+  'Swimmer cuts through water',
+  'Gymnast performs graceful routine',
+  'Weightlifter hoists heavy barbell',
+  'Archer hits bullseye',
+  'Golfer sinks difficult putt',
+  'Tennis player serves ace',
+  'Basketball player scores three-pointer',
+  'Soccer player kicks winning goal',
+  'Baseball player hits home run',
+  'Hockey player scores hat trick',
+  'Volleyball player spikes ball',
+  'Cricket player bowls perfect over',
+  'Rugby player scores try',
+  'Boxer lands knockout punch',
+  "Fencer parries opponent's thrust",
+  'Skater lands triple axel',
+  'Bowler rolls perfect game',
+  'Jockey races to victory',
+  'Racecar driver takes checkered flag',
+  'Chess player declares checkmate',
+  'Poker player goes all in',
+  'Magician performs mind-bending illusion',
+  'Comedian delivers hilarious punchline',
+  'Juggler keeps balls airborne',
+  'Acrobat defies gravity',
+  'Storyteller weaves captivating tale',
+  'Poet recites moving verse',
+  'Balloon floats on breeze',
+  'Fireworks explode in sky',
+  'Time flies by quickly',
+];
 
 export const getReadignTime = (text: string) => {
   const wordsPerMinute = 200;
   const words = text.split(' ').length ?? 0;
-  return Math.ceil(words/wordsPerMinute);
-}
+  return Math.ceil(words / wordsPerMinute);
+};
 
 export const reanimatedAnimations = [
   {
-    title: "Smooth Opacity Transitions",
-    description: "Implement seamless opacity changes in React Native using Reanimated. Create fade-in and fade-out effects for elements, enhancing the visual appeal of your app's transitions between different states or screens."
+    title: 'Smooth Opacity Transitions',
+    description: "Implement seamless opacity changes in React Native using Reanimated. Create fade-in and fade-out effects for elements, enhancing the visual appeal of your app's transitions between different states or screens.",
   },
   {
-    title: "Dynamic Scale Animations",
-    description: "Master scaling animations with Reanimated to create interactive UI elements. Learn to smoothly increase or decrease the size of components, perfect for emphasizing user interactions or displaying important information."
+    title: 'Dynamic Scale Animations',
+    description: 'Master scaling animations with Reanimated to create interactive UI elements. Learn to smoothly increase or decrease the size of components, perfect for emphasizing user interactions or displaying important information.',
   },
   {
-    title: "Fluid Gestures Handling",
-    description: "Explore Reanimated's powerful gesture handling capabilities in React Native. Implement smooth, responsive animations triggered by user gestures like swipes, pinches, and rotations for an intuitive and engaging app experience."
+    title: 'Fluid Gestures Handling',
+    description: "Explore Reanimated's powerful gesture handling capabilities in React Native. Implement smooth, responsive animations triggered by user gestures like swipes, pinches, and rotations for an intuitive and engaging app experience.",
   },
   {
-    title: "Interpolated Color Transitions",
-    description: "Dive into color interpolation using Reanimated. Create stunning visual effects by smoothly transitioning between different colors based on user interactions, scroll position, or time-based animations in your React Native app."
+    title: 'Interpolated Color Transitions',
+    description: 'Dive into color interpolation using Reanimated. Create stunning visual effects by smoothly transitioning between different colors based on user interactions, scroll position, or time-based animations in your React Native app.',
   },
   {
-    title: "Spring-based Motion Effects",
-    description: "Harness the power of spring animations in Reanimated to add natural-looking motion to your React Native components. Learn to fine-tune spring parameters for realistic bouncing and overshooting effects."
+    title: 'Spring-based Motion Effects',
+    description: 'Harness the power of spring animations in Reanimated to add natural-looking motion to your React Native components. Learn to fine-tune spring parameters for realistic bouncing and overshooting effects.',
   },
   {
-    title: "Animated Progress Indicators",
-    description: "Craft eye-catching progress indicators using Reanimated in React Native. Implement smooth, circular progress bars, linear loaders, and custom loading animations to keep users engaged during app processes."
+    title: 'Animated Progress Indicators',
+    description: 'Craft eye-catching progress indicators using Reanimated in React Native. Implement smooth, circular progress bars, linear loaders, and custom loading animations to keep users engaged during app processes.',
   },
   {
-    title: "Parallel Animation Composition",
-    description: "Master the art of composing multiple animations to run simultaneously with Reanimated. Create complex, multi-layered animations by combining various transformation and style changes for rich visual experiences."
+    title: 'Parallel Animation Composition',
+    description: 'Master the art of composing multiple animations to run simultaneously with Reanimated. Create complex, multi-layered animations by combining various transformation and style changes for rich visual experiences.',
   },
   {
-    title: "Keyframe-based Complex Animations",
-    description: "Unlock the potential of keyframe animations in Reanimated for React Native. Design intricate, multi-step animations by defining key points and letting Reanimated smoothly interpolate between them for sophisticated motion sequences."
+    title: 'Keyframe-based Complex Animations',
+    description: 'Unlock the potential of keyframe animations in Reanimated for React Native. Design intricate, multi-step animations by defining key points and letting Reanimated smoothly interpolate between them for sophisticated motion sequences.',
   },
   {
-    title: "Animated List Interactions",
-    description: "Enhance list interactions in React Native using Reanimated. Implement smooth item removals, insertions, and reordering animations to create dynamic, responsive list views that delight users with fluid transitions."
+    title: 'Animated List Interactions',
+    description: 'Enhance list interactions in React Native using Reanimated. Implement smooth item removals, insertions, and reordering animations to create dynamic, responsive list views that delight users with fluid transitions.',
   },
   {
-    title: "Custom Easing Functions",
-    description: "Explore custom easing functions in Reanimated to fine-tune animation timing. Learn to create unique motion curves that perfectly match your app's style and improve the perceived performance of UI transitions."
+    title: 'Custom Easing Functions',
+    description: "Explore custom easing functions in Reanimated to fine-tune animation timing. Learn to create unique motion curves that perfectly match your app's style and improve the perceived performance of UI transitions.",
   },
   {
-    title: "Animated Layout Transitions",
-    description: "Master layout animations with Reanimated in React Native. Smoothly animate changes in component size, position, and arrangement to create fluid transitions between different app states or screen layouts."
+    title: 'Animated Layout Transitions',
+    description: 'Master layout animations with Reanimated in React Native. Smoothly animate changes in component size, position, and arrangement to create fluid transitions between different app states or screen layouts.',
   },
   {
-    title: "Performance-optimized Scrolling Effects",
-    description: "Implement butter-smooth scrolling effects using Reanimated's optimized algorithms. Create parallax scrolling, animated headers, and interactive scroll-based animations without compromising your React Native app's performance."
+    title: 'Performance-optimized Scrolling Effects',
+    description: "Implement butter-smooth scrolling effects using Reanimated's optimized algorithms. Create parallax scrolling, animated headers, and interactive scroll-based animations without compromising your React Native app's performance.",
   },
   {
-    title: "Gesture-driven Drawer Animations",
-    description: "Craft responsive drawer animations using Reanimated and gesture handlers in React Native. Build smooth, interactive side menus or bottom sheets that respond naturally to user swipes and touches."
+    title: 'Gesture-driven Drawer Animations',
+    description: 'Craft responsive drawer animations using Reanimated and gesture handlers in React Native. Build smooth, interactive side menus or bottom sheets that respond naturally to user swipes and touches.',
   },
   {
-    title: "Animated Charts Visualization",
-    description: "Bring data to life with animated charts using Reanimated in React Native. Create engaging line graphs, bar charts, and pie charts with smooth transitions and interactive elements for compelling data visualization."
+    title: 'Animated Charts Visualization',
+    description: 'Bring data to life with animated charts using Reanimated in React Native. Create engaging line graphs, bar charts, and pie charts with smooth transitions and interactive elements for compelling data visualization.',
   },
   {
-    title: "3D Transform Animations",
-    description: "Explore the world of 3D animations using Reanimated in React Native. Implement perspective transforms, rotations, and translations to create depth and immersion in your app's user interface."
+    title: '3D Transform Animations',
+    description: "Explore the world of 3D animations using Reanimated in React Native. Implement perspective transforms, rotations, and translations to create depth and immersion in your app's user interface.",
   },
   {
-    title: "Sequence Animation Chaining",
-    description: "Master the art of chaining animations in Reanimated for React Native. Create complex sequences of movements and transitions by precisely timing and linking multiple animations for sophisticated motion design."
+    title: 'Sequence Animation Chaining',
+    description: 'Master the art of chaining animations in Reanimated for React Native. Create complex sequences of movements and transitions by precisely timing and linking multiple animations for sophisticated motion design.',
   },
   {
-    title: "Animated Notification Badges",
-    description: "Implement eye-catching notification badges using Reanimated in React Native. Create smooth scaling, color change, and bounce effects to draw user attention to new information or important updates."
+    title: 'Animated Notification Badges',
+    description: 'Implement eye-catching notification badges using Reanimated in React Native. Create smooth scaling, color change, and bounce effects to draw user attention to new information or important updates.',
   },
   {
-    title: "Dynamic Form Animations",
-    description: "Enhance form interactions with Reanimated animations in React Native. Implement smooth transitions for form field focus, validation feedback, and error messages to create a more responsive and intuitive user experience."
+    title: 'Dynamic Form Animations',
+    description: 'Enhance form interactions with Reanimated animations in React Native. Implement smooth transitions for form field focus, validation feedback, and error messages to create a more responsive and intuitive user experience.',
   },
   {
-    title: "Animated Carousel Effects",
-    description: "Build engaging image carousels with Reanimated in React Native. Create smooth sliding transitions, parallax effects, and interactive gestures to showcase content in an visually appealing and user-friendly manner."
+    title: 'Animated Carousel Effects',
+    description: 'Build engaging image carousels with Reanimated in React Native. Create smooth sliding transitions, parallax effects, and interactive gestures to showcase content in an visually appealing and user-friendly manner.',
   },
   {
-    title: "Physics-based Animations",
-    description: "Dive into physics-based animations using Reanimated in React Native. Simulate real-world motion with gravity, friction, and collision effects to create highly realistic and interactive UI elements in your app."
-  }
+    title: 'Physics-based Animations',
+    description: 'Dive into physics-based animations using Reanimated in React Native. Simulate real-world motion with gravity, friction, and collision effects to create highly realistic and interactive UI elements in your app.',
+  },
 ];
 
-import { Feather, Ionicons, Octicons } from "@expo/vector-icons";
-import { Href } from "expo-router";
-import { glsl } from "./(tabs)/helpers/shaderLib";
 export type Screen = { name: string; route: string, info: string };
 export const screens: Screen[] = [
-  { name: 'Bottom Tab Animation (Skia)', route: '(tabs)/bottomTabAnimation', info: `This concept focuses on creating a custom bottom tab bar with focus animation using Skia Path for unique shapes.\n\nIt covers integrating navigation with Expo Router, animating tab focus, and leveraging Skia to create custom tab bar shapes.\n\nThis combination of techniques allows developers to create highly customized, visually appealing navigation experiences that enhance user interaction and app aesthetics, going beyond standard tab bar implementations.` },
-  { name: 'Pan gesture (Skia)', route: '(tabs)/skiaPanGesture', info: `This advanced concept revisits pan gestures, focusing on their implementation with Skia.\n\nIt explores clipping Skia Paths, animating BlurMask effects, and handling PanGestures within the Skia context.\n\nThis approach demonstrates how slight changes in design implementation can lead to significantly different outcomes, showcasing the flexibility and power of combining Skia with Reanimated for creating sophisticated, performant gesture-based interactions.` },
-  { name: 'Magic Button (Skia)', route: '(tabs)/magicButton', info: `The Magic Button concept introduces React Native Skia, opening up new possibilities for advanced animations and interactions.\n\nThis section explores creating a Skia Canvas, applying BlurMask effects, and working with basic shapes like Rect, Circle, and Path.\n\nBy combining Skia with Reanimated and handling Skia Gestures, developers can create highly customized, performant UI elements. This concept bridges the gap between simple animations and complex, custom-rendered components in React Native.` },
-  { name: 'Animated Path (Skia)', route: '(tabs)/animatedPath', info: `Understanding Skia Path is crucial for creating custom shapes, graphs, and charts in React Native.\n\nThis concept delves into creating and animating custom paths using Skia and Reanimated. It covers the usePathInterpolation hook for smooth path transitions and explores Skia Effects for enhanced visuals.\n\nThis knowledge is essential for developers looking to create unique, data-driven visualizations or complex animated shapes in their applications.` },
-  { name: 'Animatable Text', route: '(tabs)/animatableText', info: `Text animation is a crucial aspect of creating engaging mobile interfaces. This concept focuses on selecting the right approach for performant text animations in React Native.\n\nIt explores two main methods: using Redash for complex text manipulations, and leveraging Animateable Text for simpler, direct animations.\n\nUnderstanding these techniques allows developers to create fluid, efficient text animations that enhance readability and user engagement without compromising app performance.` },
-  { name: 'Parallax', route: '(tabs)/paralax', info: `Parallax animations create a sense of depth and movement, enhancing the visual appeal of mobile applications.\n\nThis concept explores the power of combining Reanimated's interpolate function with onScroll callbacks. By listening to scroll offsets and applying interpolation, developers can create smooth, responsive parallax effects.\n\nThis technique adds a layer of sophistication to scrollable content, making the user interface more dynamic and engaging.` },
-  { name: 'Spatial Tap Gesture', route: '(tabs)/spatialTapGesture', info: `Tap Gestures, often overlooked due to their simplicity, are powerful tools for creating intuitive user interactions.\n\nThis concept goes beyond basic TouchableOpacity, using Reanimated to create immediate, customized reactions to tap events. The useAnimatedReaction hook, acting as the UI thread's equivalent of useEffect, enables developers to fine-tune responses to user taps.\n\nBy customizing easing curves, apps can achieve more natural and engaging tap animations, elevating the overall user experience.` },
-  { name: 'Pan Gestures', route: '(tabs)/panGestures', info: `Pan Gestures are fundamental in mobile interactions, powering scrolling, swiping, and dragging.\n\nThis concept combines react-native-gesture-handler's Pan Gesture with Reanimated to create dynamic, responsive UI elements. By tracking an object's position and leveraging useDerivedValue, developers can create smooth, interactive animations.\n\nThis approach allows for precise control over element movement and color changes, enhancing the user's tactile experience with the app's interface.` },
-  { name: 'Bouncing Square', route: '(tabs)/bouncingSqare', info: `Reanimated is a powerful library for creating fluid animations in React Native.\n\nAt its core are SharedValues, which enable high-performance animations by sharing data between JavaScript and native UI threads. The useAnimatedStyle hook leverages these SharedValues to create dynamic styles that efficiently update the UI without full component re-renders. \n\nReanimated also offers essential higher-order functions: withTiming for smooth, time-based animations; withSpring for natural, springy movements; and withRepeat for cyclic effects.\n\nThese tools combined allow developers to create a wide range of animations, from simple transitions to complex gesture-based interactions, significantly enhancing the user experience in mobile applications.` },
-  { name: 'Scrollable Percentage', route: '(tabs)/scrollablePercentage', info: `This advanced concept combines scroll offset listening, text percentage animation, and coordination of different animation states.\n\nUsing the useAnimatedScrollHandler hook, developers can create a dynamic percentage indicator that responds to scroll events.\n\nThis technique demonstrates how to synchronize multiple animated elements, creating a cohesive and interactive scrolling experience. It builds upon knowledge from parallax animations and text animations, showcasing the power of combining these concepts for complex UI interactions.` },
-  { name: 'Layout Animations', route: '(tabs)/layoutAnimations', info: `Layout animations provide a powerful and efficient way to animate component changes in React Native.\n\nThis concept covers entering and exiting animations, keyframe animations, and layout transitions. By understanding when and how to use these techniques, developers can create smooth, natural-feeling transitions between different UI states.\n\nLayout animations enhance the overall fluidity of the app, making interface changes more intuitive and visually appealing to users.` },
-  { name: 'Family Number Input', route: '(tabs)/familyNumberInput', info: `This concept demonstrates the creation of a custom number input component with a grid layout.\n\nIt combines custom tap gestures with entering and exiting animations, as well as layout transitions. This advanced technique showcases how to create complex, interactive UI elements that respond fluidly to user input.\n\nBy integrating various animation types, developers can craft unique, engaging input experiences that stand out in mobile applications.` },
-  { name: 'Shared Transitions', route: '(tabs)/sharedTransitions', info: `Shared Transitions create smooth, connected animations between different screens or states in a mobile app. This concept explores setting up shared element transitions between screens and implementing a drag-to-dismiss gesture using Reanimated. It covers integrating Expo BlurView for pervasive blur effects and managing transparent navigation for seamless visual flow. This demonstrates how to create sophisticated, visually cohesive transitions that enhance the perceived continuity and fluidity of the user interface.\n\n\nImportant Note: As of now, this technique is experimental and may be unstable. It is not recommended for use in production environments, as it may lead to unexpected behavior or performance issues. Developers should approach this concept as a learning experience and exercise caution when considering its implementation in live applications.` },
+  { name: 'Bottom Tab Animation (Skia)', route: '(tabs)/bottomTabAnimation', info: 'This concept focuses on creating a custom bottom tab bar with focus animation using Skia Path for unique shapes.\n\nIt covers integrating navigation with Expo Router, animating tab focus, and leveraging Skia to create custom tab bar shapes.\n\nThis combination of techniques allows developers to create highly customized, visually appealing navigation experiences that enhance user interaction and app aesthetics, going beyond standard tab bar implementations.' },
+  { name: 'Pan gesture (Skia)', route: '(tabs)/skiaPanGesture', info: 'This advanced concept revisits pan gestures, focusing on their implementation with Skia.\n\nIt explores clipping Skia Paths, animating BlurMask effects, and handling PanGestures within the Skia context.\n\nThis approach demonstrates how slight changes in design implementation can lead to significantly different outcomes, showcasing the flexibility and power of combining Skia with Reanimated for creating sophisticated, performant gesture-based interactions.' },
+  { name: 'Magic Button (Skia)', route: '(tabs)/magicButton', info: 'The Magic Button concept introduces React Native Skia, opening up new possibilities for advanced animations and interactions.\n\nThis section explores creating a Skia Canvas, applying BlurMask effects, and working with basic shapes like Rect, Circle, and Path.\n\nBy combining Skia with Reanimated and handling Skia Gestures, developers can create highly customized, performant UI elements. This concept bridges the gap between simple animations and complex, custom-rendered components in React Native.' },
+  { name: 'Animated Path (Skia)', route: '(tabs)/animatedPath', info: 'Understanding Skia Path is crucial for creating custom shapes, graphs, and charts in React Native.\n\nThis concept delves into creating and animating custom paths using Skia and Reanimated. It covers the usePathInterpolation hook for smooth path transitions and explores Skia Effects for enhanced visuals.\n\nThis knowledge is essential for developers looking to create unique, data-driven visualizations or complex animated shapes in their applications.' },
+  { name: 'Animatable Text', route: '(tabs)/animatableText', info: 'Text animation is a crucial aspect of creating engaging mobile interfaces. This concept focuses on selecting the right approach for performant text animations in React Native.\n\nIt explores two main methods: using Redash for complex text manipulations, and leveraging Animateable Text for simpler, direct animations.\n\nUnderstanding these techniques allows developers to create fluid, efficient text animations that enhance readability and user engagement without compromising app performance.' },
+  { name: 'Parallax', route: '(tabs)/paralax', info: 'Parallax animations create a sense of depth and movement, enhancing the visual appeal of mobile applications.\n\nThis concept explores the power of combining Reanimated\'s interpolate function with onScroll callbacks. By listening to scroll offsets and applying interpolation, developers can create smooth, responsive parallax effects.\n\nThis technique adds a layer of sophistication to scrollable content, making the user interface more dynamic and engaging.' },
+  { name: 'Spatial Tap Gesture', route: '(tabs)/spatialTapGesture', info: 'Tap Gestures, often overlooked due to their simplicity, are powerful tools for creating intuitive user interactions.\n\nThis concept goes beyond basic TouchableOpacity, using Reanimated to create immediate, customized reactions to tap events. The useAnimatedReaction hook, acting as the UI thread\'s equivalent of useEffect, enables developers to fine-tune responses to user taps.\n\nBy customizing easing curves, apps can achieve more natural and engaging tap animations, elevating the overall user experience.' },
+  { name: 'Pan Gestures', route: '(tabs)/panGestures', info: 'Pan Gestures are fundamental in mobile interactions, powering scrolling, swiping, and dragging.\n\nThis concept combines react-native-gesture-handler\'s Pan Gesture with Reanimated to create dynamic, responsive UI elements. By tracking an object\'s position and leveraging useDerivedValue, developers can create smooth, interactive animations.\n\nThis approach allows for precise control over element movement and color changes, enhancing the user\'s tactile experience with the app\'s interface.' },
+  { name: 'Bouncing Square', route: '(tabs)/bouncingSqare', info: 'Reanimated is a powerful library for creating fluid animations in React Native.\n\nAt its core are SharedValues, which enable high-performance animations by sharing data between JavaScript and native UI threads. The useAnimatedStyle hook leverages these SharedValues to create dynamic styles that efficiently update the UI without full component re-renders. \n\nReanimated also offers essential higher-order functions: withTiming for smooth, time-based animations; withSpring for natural, springy movements; and withRepeat for cyclic effects.\n\nThese tools combined allow developers to create a wide range of animations, from simple transitions to complex gesture-based interactions, significantly enhancing the user experience in mobile applications.' },
+  { name: 'Scrollable Percentage', route: '(tabs)/scrollablePercentage', info: 'This advanced concept combines scroll offset listening, text percentage animation, and coordination of different animation states.\n\nUsing the useAnimatedScrollHandler hook, developers can create a dynamic percentage indicator that responds to scroll events.\n\nThis technique demonstrates how to synchronize multiple animated elements, creating a cohesive and interactive scrolling experience. It builds upon knowledge from parallax animations and text animations, showcasing the power of combining these concepts for complex UI interactions.' },
+  { name: 'Layout Animations', route: '(tabs)/layoutAnimations', info: 'Layout animations provide a powerful and efficient way to animate component changes in React Native.\n\nThis concept covers entering and exiting animations, keyframe animations, and layout transitions. By understanding when and how to use these techniques, developers can create smooth, natural-feeling transitions between different UI states.\n\nLayout animations enhance the overall fluidity of the app, making interface changes more intuitive and visually appealing to users.' },
+  { name: 'Family Number Input', route: '(tabs)/familyNumberInput', info: 'This concept demonstrates the creation of a custom number input component with a grid layout.\n\nIt combines custom tap gestures with entering and exiting animations, as well as layout transitions. This advanced technique showcases how to create complex, interactive UI elements that respond fluidly to user input.\n\nBy integrating various animation types, developers can craft unique, engaging input experiences that stand out in mobile applications.' },
+  { name: 'Shared Transitions', route: '(tabs)/sharedTransitions', info: 'Shared Transitions create smooth, connected animations between different screens or states in a mobile app. This concept explores setting up shared element transitions between screens and implementing a drag-to-dismiss gesture using Reanimated. It covers integrating Expo BlurView for pervasive blur effects and managing transparent navigation for seamless visual flow. This demonstrates how to create sophisticated, visually cohesive transitions that enhance the perceived continuity and fluidity of the user interface.\n\n\nImportant Note: As of now, this technique is experimental and may be unstable. It is not recommended for use in production environments, as it may lead to unexpected behavior or performance issues. Developers should approach this concept as a learning experience and exercise caution when considering its implementation in live applications.' },
   { name: 'Image Shader Transitions', route: '(tabs)/imageShaderTransitions', info: 'This concept explores creating custom image transitions using Skia ImageShaders in React Native. It demonstrates how to build a simple image transition controlled by a Slider, then advances to implementing more complex GL Transitions using custom shaders.\n\nBy learning to handle shaders in React Native, create custom shaders, and adapt existing GL Transitions, developers can craft unique, eye-catching image transitions.\n\nThis technique opens up possibilities for creating visually stunning effects in mobile applications, enhancing user engagement through smooth, customized image animations.' },
-  { name: 'Navigating With Shaders', route: '(tabs)/navigatorShader', info: `This advanced concept combines Expo Router navigation with Skia ImageShaders to create animated transitions between screens. By building a custom Shader Transition provider, developers can seamlessly integrate complex visual effects into app navigation. The tutorial covers using makeImageFromSnapshot from Skia to capture screen content and animate transitions. This technique elevates the user experience by transforming standard navigation into a visually rich journey, demonstrating the powerful capabilities of combining Skia's advanced rendering with React Native's navigation systems.` }
+  { name: 'Navigating With Shaders', route: '(tabs)/navigatorShader', info: 'This advanced concept combines Expo Router navigation with Skia ImageShaders to create animated transitions between screens. By building a custom Shader Transition provider, developers can seamlessly integrate complex visual effects into app navigation. The tutorial covers using makeImageFromSnapshot from Skia to capture screen content and animate transitions. This technique elevates the user experience by transforming standard navigation into a visually rich journey, demonstrating the powerful capabilities of combining Skia\'s advanced rendering with React Native\'s navigation systems.' },
 ];
 
-export const title = "Re Animations".split('');
+export const title = 'Re Animations'.split('');
 
 export const Palette = {
   text: '#FFFFFF',
@@ -459,7 +459,7 @@ export const fadeGrayScale = glsl`
       mix(vec4(grayscale(tc.rgb), 1.0), tc, smoothstep(    intensity, 1.0, progress)),
       progress);
   }
-`
+`;
 
 export const Notes = [
   "Remember to buy groceries on the way back home from work. Don't forget the milk and eggs.",

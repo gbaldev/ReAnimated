@@ -7,7 +7,7 @@ import Animated from 'react-native-reanimated';
 import GoBack from '@/app/components/GoBack';
 import AnimatedImage from '@/app/components/AnimatedImage';
 
-export default function initial() {
+export default function Initial() {
   const {width} = useWindowDimensions();
   const headerHeight = useHeaderHeight();
   const spacing = 20;
@@ -28,7 +28,7 @@ export default function initial() {
             <TouchableOpacity style={{ marginLeft: gap, marginTop: gap }} onPress={() => {
               navigation.navigate('detail', {
                 tag,
-                imageUri: item.url
+                imageUri: item.url,
               });
             }}>
               <AnimatedImage
@@ -39,7 +39,7 @@ export default function initial() {
                 cachePolicy={'memory-disk'}
               />
             </TouchableOpacity>
-          )
+          );
         }}
       />
     </Animated.View>

@@ -7,7 +7,7 @@ import styles, { sqareSize } from './styles';
 import GoBack from '@/app/components/GoBack';
 
 
-export default function paralax() {
+export default function SkiaPanGesture() {
   const { width: screenWidth, height: screenHeight } = useWindowDimensions();
   const translateX = useSharedValue((screenWidth / 2) - (sqareSize / 2));
   const translateY = useSharedValue((screenHeight / 2) - (sqareSize / 2));
@@ -15,7 +15,7 @@ export default function paralax() {
   const isDragging = useSharedValue(false);
   const rotate = useDerivedValue(() => {
     return withTiming(isDragging.value ? Math.PI / 4 : 0);
-  })
+  });
 
   const scale = useDerivedValue(() => {
     return withTiming(isDragging.value ? 1.2 : 1);
@@ -26,13 +26,13 @@ export default function paralax() {
   }, []);
 
   const fakeRotation = useDerivedValue(() => {
-    return withTiming(rotate.value === 0 ? '0deg' : '45deg')
+    return withTiming(rotate.value === 0 ? '0deg' : '45deg');
   }, []);
 
   const rStyle = useAnimatedStyle(() => ({
-    transform: [{ translateX: translateX.value }, { translateY: translateY.value }, { rotate: fakeRotation.value }, { scale: scale.value }]
+    transform: [{ translateX: translateX.value }, { translateY: translateY.value }, { rotate: fakeRotation.value }, { scale: scale.value }],
   })
-);
+  );
 
   const tap = Gesture.Pan()
     .onBegin(() => {
@@ -40,7 +40,7 @@ export default function paralax() {
       context.value = {
         x: translateX.value,
         y: translateY.value,
-      }
+      };
       isDragging.value = true;
     })
     .onUpdate((event) => {
@@ -55,19 +55,19 @@ export default function paralax() {
 
   const origin = useDerivedValue(() => {
     return {
-      x: translateX.value + sqareSize /2,
-      y: translateY.value + sqareSize /2,
-    }
+      x: translateX.value + sqareSize / 2,
+      y: translateY.value + sqareSize / 2,
+    };
   }, []);
-  
+
   const whiteBackground = rect(0, 0, screenWidth, screenHeight / 2);
-  const blackBackground = rect(0, screenHeight / 2, screenWidth, screenHeight / 2)
+  const blackBackground = rect(0, screenHeight / 2, screenWidth, screenHeight / 2);
   const blur = useDerivedValue(() => {
     return withTiming(isDragging.value ? 15 : 0);
   });
 
   return (
-    <View style={{flex:1}}>
+    <View style={styles.flex1}>
       <GoBack />
       <Canvas style={styles.container}>
         <Rect
@@ -76,7 +76,7 @@ export default function paralax() {
         />
         <Rect
           rect={blackBackground}
-        color={'black'}
+          color={'black'}
         />
         <Group clip={whiteBackground}>
           <Group transform={rTransformation} origin={origin}>

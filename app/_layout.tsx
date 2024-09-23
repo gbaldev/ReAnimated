@@ -1,5 +1,6 @@
+import React from 'react';
 import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
-import { useFonts, loadAsync } from 'expo-font';
+import { loadAsync } from 'expo-font';
 import { Stack } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
 import { useEffect, useState } from 'react';
@@ -20,7 +21,7 @@ export default gestureHandlerRootHOC(function RootLayout() {
     (async () => {
       await loadAsync({
         'SF-Pro-Rounded-Bold': sfProRoundedBold,
-      })
+      });
       setFontsLoaded(true);
     })();
   }, []);
@@ -42,11 +43,11 @@ export default gestureHandlerRootHOC(function RootLayout() {
           <Stack.Screen name="+not-found" />
           <Stack.Screen name="info" options={{
             presentation: 'containedTransparentModal',
-            animation: 'fade'
+            animation: 'fade',
           }} />
           {screens.sort((a, b) => a.name.localeCompare(b.name)).map(({route}) => <Stack.Screen name={route as string} key={route as string} />)}
         </Stack>
       </ThemeProvider>
     </GestureHandlerRootView>
   );
-})
+});

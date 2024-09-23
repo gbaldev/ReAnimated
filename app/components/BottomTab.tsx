@@ -1,5 +1,6 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 import React from 'react';
-import { StyleSheet, View, useWindowDimensions, TouchableOpacity } from "react-native"
+import { StyleSheet, View, useWindowDimensions, TouchableOpacity } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { getIconByScreenName, tabsScreenNames } from '../constants';
 import { Href, router, usePathname } from 'expo-router';
@@ -18,13 +19,13 @@ const BottomTab: React.ComponentType<{}> = () => {
   const tabBarItemWidth = (containerWidth - (paddingHorizontal * 2 )) / Object.values(tabsScreenNames).length;
   const isCurrentPathname = (screenName: string) => !!usePathname().toLowerCase().match(screenName.toLocaleLowerCase());
   const pathName = usePathname();
-  
+
   const rStyle = useAnimatedStyle(() => {
     const index = Object.values(tabsScreenNames).indexOf(pathName.replace('/bottomTabAnimation/', '') as any);
     return {
       left: withTiming(paddingHorizontal + tabBarItemWidth * index),
       width: tabBarItemWidth,
-    }
+    };
   }, [paddingHorizontal, tabBarItemWidth, pathName]);
 
   return (
@@ -32,18 +33,18 @@ const BottomTab: React.ComponentType<{}> = () => {
       <Animated.View style={[styles.highlighted, rStyle]}>
         <ActualPath height={tabBarItemHeight} width={tabBarItemWidth}/>
       </Animated.View>
-        {Object.values(tabsScreenNames).map((screenName, i) => {
-          return (
-            <TouchableOpacity key={`${screenName}${i}`} style={styles.innerContainer} onPress={() => router.navigate(getRoute(screenName))}>
-              <AnimatedShowableView isVisible={isCurrentPathname(screenName)}>
-                {getIconByScreenName(screenName)}
-              </AnimatedShowableView>
-            </TouchableOpacity>
-          )
-        })}
+      {Object.values(tabsScreenNames).map((screenName, i) => {
+        return (
+          <TouchableOpacity key={`${screenName}${i}`} style={styles.innerContainer} onPress={() => router.navigate(getRoute(screenName))}>
+            <AnimatedShowableView isVisible={isCurrentPathname(screenName)}>
+              {getIconByScreenName(screenName)}
+            </AnimatedShowableView>
+          </TouchableOpacity>
+        );
+      })}
     </View>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {
@@ -60,11 +61,11 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
-  highlighted: { 
+  highlighted: {
     height: tabBarItemHeight,
     opacity: 0.5,
     alignItems: 'center',
     position: 'absolute',
   },
-})
+});
 export default BottomTab;

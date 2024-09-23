@@ -1,9 +1,11 @@
-import { useIsFocused } from "@react-navigation/native";
-import { useEffect } from "react";
-import { View, StyleSheet } from "react-native";
-import { Gesture, GestureDetector } from "react-native-gesture-handler";
-import Animated, { useSharedValue, withTiming, withSequence, useAnimatedStyle, Easing } from "react-native-reanimated";
-import { title } from "../constants";
+/* eslint-disable react-hooks/rules-of-hooks */
+import React from 'react';
+import { useIsFocused } from '@react-navigation/native';
+import { useEffect } from 'react';
+import { View, StyleSheet } from 'react-native';
+import { Gesture, GestureDetector } from 'react-native-gesture-handler';
+import Animated, { useSharedValue, withTiming, withSequence, useAnimatedStyle, Easing } from 'react-native-reanimated';
+import { title } from '../constants';
 
 
 const AppTitle = () => {
@@ -16,7 +18,7 @@ const AppTitle = () => {
   }).onFinalize(() => {
     rValues[i].value = withTiming('0deg');
   }));
-  
+
   useEffect(() => {
     if (isFocused) {
       yValues.forEach((yValue, index) => {
@@ -44,19 +46,19 @@ const AppTitle = () => {
         );
       });
     }
-  }, [isFocused]);
+  }, [isFocused, rValues, xValues, yValues]);
 
   return (
-    <View style={{ flexDirection: 'row' }}>
+    <View style={styles.row}>
       {title.map((letter, index) => {
         const rStyle = useAnimatedStyle(() => ({
-          transform: [{ translateY: yValues[index].value }, { translateX: xValues[index].value }, { rotate: rValues[index].value }]
+          transform: [{ translateY: yValues[index].value }, { translateX: xValues[index].value }, { rotate: rValues[index].value }],
         }));
 
         return (
-        <GestureDetector gesture={hoverGestures[index]} key={index}>
-          <Animated.Text style={[styles.title, rStyle]}>{letter}</Animated.Text>
-        </GestureDetector>
+          <GestureDetector gesture={hoverGestures[index]} key={index}>
+            <Animated.Text style={[styles.title, rStyle]}>{letter}</Animated.Text>
+          </GestureDetector>
         );
       })}
     </View>
@@ -71,6 +73,9 @@ const styles = StyleSheet.create({
     color: '#fff',
     marginBottom: 20,
     fontFamily: 'SF-Pro-Rounded-Bold',
+  },
+  row: {
+    flexDirection: 'row',
   },
 });
 export default AppTitle;

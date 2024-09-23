@@ -1,5 +1,5 @@
-import Animated from "react-native-reanimated";
-import { TouchableOpacity } from "react-native";
+import Animated from 'react-native-reanimated';
+import { TouchableOpacity } from 'react-native';
 
 const AnimatedTouchableOpacity = Animated.createAnimatedComponent(TouchableOpacity);
 

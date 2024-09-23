@@ -10,12 +10,12 @@ import GoBack from '@/app/components/GoBack';
 import DeleteItem from '@/app/components/DeleteItem';
 import AddItem from '@/app/components/AddItem';
 
-const layoutAnimations = () => {
+export default function LayoutAnimations() {
   const [ids, setIds] = useState<string[]>([]);
   const { FlipIn, FlipOut } = useCustomKeyFrames();
   const deleteItem = (index: number) => {
     setIds(_ids => _ids.filter((_, i) => i !== index));
-  }
+  };
 
   return (
     <SafeAreaView style={styles.container}>
@@ -42,11 +42,9 @@ const layoutAnimations = () => {
             >
               <Text style={styles.text}>{item}</Text>
             </Animated.View>
-          )
+          );
         }}
       />
     </SafeAreaView>
   );
 }
-
-export default layoutAnimations;

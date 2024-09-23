@@ -1,14 +1,15 @@
-import { directionalWarpShader } from "@/app/constants";
-import { transition } from "@/app/(tabs)/helpers/transition";
-import { Canvas, Fill, ImageShader, Shader, SkImage, makeImageFromView } from "@shopify/react-native-skia";
-import { PropsWithChildren, createContext, useCallback, useContext, useRef } from "react";
-import { View, useWindowDimensions } from "react-native";
-import Animated, { runOnJS, useAnimatedStyle, useDerivedValue, useSharedValue, withTiming } from "react-native-reanimated";
+import React from 'react';
+import { directionalWarpShader } from '@/app/constants';
+import { transition } from '@/app/(tabs)/helpers/transition';
+import { Canvas, Fill, ImageShader, Shader, SkImage, makeImageFromView } from '@shopify/react-native-skia';
+import { PropsWithChildren, createContext, useCallback, useContext, useRef } from 'react';
+import { View, useWindowDimensions } from 'react-native';
+import Animated, { runOnJS, useAnimatedStyle, useDerivedValue, useSharedValue, withTiming } from 'react-native-reanimated';
 
 const TransitionsContext = createContext({
   prepareTransition: async () => {},
   runTransition: async (c?: () => void) => {},
-})
+});
 
 interface TransitionsProviderProps {}
 
@@ -20,8 +21,8 @@ const TransitionsProvider: React.ComponentType<PropsWithChildren<TransitionsProv
   const {height, width} = useWindowDimensions();
 
   const prepareTransition = useCallback(async () => {
-      const imageSnapshot = await makeImageFromView(viewRef);
-      firstImage.value = imageSnapshot;
+    const imageSnapshot = await makeImageFromView(viewRef);
+    firstImage.value = imageSnapshot;
   }, [firstImage]);
 
   const runTransition = useCallback(async (exitingCallback?: () => void) => {
@@ -56,12 +57,12 @@ const TransitionsProvider: React.ComponentType<PropsWithChildren<TransitionsProv
     return {
       opacity: progress.value > 0 ? 1 : 0,
       pointerEvents: progress.value > 0 ? 'auto' : 'none',
-    }
+    };
   });
 
   return (
     <TransitionsContext.Provider value={{
-      prepareTransition, runTransition
+      prepareTransition, runTransition,
     }}>
       <AnimatedCanvas style={[{
         position: 'absolute',
@@ -83,15 +84,13 @@ const TransitionsProvider: React.ComponentType<PropsWithChildren<TransitionsProv
         {children}
       </View>
     </TransitionsContext.Provider>
-    );
+  );
 };
 
 export const useTransition = () => {
   return useContext(TransitionsContext);
-}
+};
 
 export default TransitionsProvider;
-function userRef<T>(arg0: null) {
-  throw new Error("Function not implemented.");
-}
+
 

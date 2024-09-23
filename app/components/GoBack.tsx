@@ -1,15 +1,15 @@
-import { MaterialIcons } from "@expo/vector-icons";
-import { router } from "expo-router";
-import React from "react";
-import { StyleSheet, TouchableOpacity } from "react-native";
+import { MaterialIcons } from '@expo/vector-icons';
+import { router } from 'expo-router';
+import React from 'react';
+import { StyleSheet, TouchableOpacity } from 'react-native';
 
 const GoBack: React.ComponentType<{topOffset?: number}> = ({ topOffset }) => {
   return (
     <TouchableOpacity onPress={router.dismissAll} style={[styles.button, topOffset ? { top: topOffset } : undefined]}>
-      <MaterialIcons name='arrow-back' size={32} color={'black'} />
+      <MaterialIcons name="arrow-back" size={32} color={'black'} />
     </TouchableOpacity>
-  )
-}
+  );
+};
 
 const styles = StyleSheet.create({
   button: {

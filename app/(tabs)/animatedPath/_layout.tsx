@@ -8,7 +8,7 @@ import { StyleSheet, SafeAreaView, useWindowDimensions } from 'react-native';
 export type Option = 'Light' | 'Standard' | 'Pro';
 const options: Option[] = ['Light', 'Standard', 'Pro'];
 
-export default function animatedPath() {
+export default function AnimatedPath() {
   const [selectedOption, setSelectedOption] = useState<Option>('Standard');
   const { width } = useWindowDimensions();
   return (
