@@ -172,11 +172,3 @@ Description: The final demonstration combines Expo Router navigation with Skia I
 2. Run `npm install` or `yarn install` to install dependencies
 3. Start the Expo development server with `expo start`
 4. Use the Expo Go app on your device or an emulator to view the project
-
-## Performance Tips
-
-- Use `useAnimatedStyle` for dynamic style updates to minimize bridge communication
-- Leverage `useDerivedValue` for computed values that depend on animated values
-- Utilize `runOnJS` when you need to call JavaScript functions from the UI thread
-- Optimize gesture handlers by using `useAnimatedGestureHandler`
-- Use `SharedValue` for values that need to be accessed and modified on the UI thread
