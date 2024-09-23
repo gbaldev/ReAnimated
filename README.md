@@ -54,6 +54,9 @@ Description: This screen showcases a custom animated bottom tab bar using Reanim
 ### 2. Pan Gesture Animation
 
 
+https://github.com/user-attachments/assets/f7c92bdc-5ae8-4761-ba17-ac64176b765b
+
+
 Description: An advanced implementation of pan gesture animations, featuring dynamic path clipping and blur effects. This example illustrates the power of combining Reanimated's gesture handling with Skia's rendering capabilities.
 
 ### 3. Magic Button
