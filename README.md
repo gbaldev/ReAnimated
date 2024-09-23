@@ -47,6 +47,7 @@ The project is built using Expo for ease of setup and development, allowing for 
 
 ### 1. Bottom Tab Animation (Skia)
 
+https://github.com/user-attachments/assets/4344dfd5-cf6b-4b2a-8ca4-04d34593f2d6
 
 Description: This screen showcases a custom animated bottom tab bar using Reanimated and Skia. It demonstrates how to create fluid focus animations and integrate them with navigation, pushing the boundaries of standard tab bar implementations.
 
