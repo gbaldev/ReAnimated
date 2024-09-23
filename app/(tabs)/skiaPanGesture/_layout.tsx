@@ -36,7 +36,6 @@ export default function SkiaPanGesture() {
 
   const tap = Gesture.Pan()
     .onBegin(() => {
-      console.log('start');
       context.value = {
         x: translateX.value,
         y: translateY.value,
@@ -44,12 +43,10 @@ export default function SkiaPanGesture() {
       isDragging.value = true;
     })
     .onUpdate((event) => {
-      console.log('active?');
       translateX.value = event.translationX + context.value.x;
       translateY.value = event.translationY + context.value.y;
     })
     .onFinalize(() => {
-      console.log('onEnd');
       isDragging.value = false;
     });
 

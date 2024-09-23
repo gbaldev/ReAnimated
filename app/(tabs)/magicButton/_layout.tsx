@@ -8,7 +8,7 @@ export default function MagicButton() {
   return (
     <SafeAreaView style={styles.container}>
       <GoBack />
-      <MButton height={100} width={300} onPress={() => console.log('pressed')} />
+      <MButton height={100} width={300} onPress={() => {}} />
     </SafeAreaView>
   );
 }
