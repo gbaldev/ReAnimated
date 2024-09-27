@@ -45,7 +45,7 @@ const SpinningLoader: React.ComponentType<SpinningLoaderProps> = ({ visible }) =
 
   return (
     <View style={{ height: canvasHeight, width: canvasWidth }}>
-      {isLoading && <Animated.View entering={FlipInEasyY.duration(200)} exiting={FlipOutEasyY}>
+      {isLoading && <Animated.View entering={FlipInEasyY.duration(200)}>
         <Canvas style={{ height: canvasHeight , width: canvasWidth }}>
           <Group transform={rTransform} origin={vec(canvasHeight / 2, canvasWidth / 2)}>
             <Path start={start} end={1} path={circlePath} color={'white'} style={'stroke'} strokeCap={'round'} strokeWidth={circleStroke}>
