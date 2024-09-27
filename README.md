@@ -174,7 +174,15 @@ https://github.com/user-attachments/assets/8016fa8f-03a7-448e-9343-0115d838e3c2
 
 Description: The Spinning Loader component demonstrates the integration of React Native Skia with Reanimated to create a visually appealing loading animation. It features a circular gradient that rotates continuously, combined with enter and layout animations effects. This showcase highlights how to manage component lifecycle with complex animations, ensuring smooth transitions when the loader appears and disappears.
 
+### 15. Microphone Button
+
+Description: The Interactive Microphone Button component demonstrates the integration of React Native Gesture Handler, Skia, and Reanimated to create a responsive and visually dynamic microphone control.
+
 ## Getting Started
+
+
+https://github.com/user-attachments/assets/b15158da-a401-4521-b4c6-011fbb4d6081
+
 
 1. Clone the repository
 2. Run `npm install` or `yarn install` to install dependencies
