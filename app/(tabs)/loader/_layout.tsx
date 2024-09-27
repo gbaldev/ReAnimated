@@ -6,7 +6,7 @@ import SpinningLoader from '@/app/components/SpinningLoader';
 import Animated, { SlideInLeft, SlideOutRight } from 'react-native-reanimated';
 
 
-export default function MagicButton() {
+export default function Loader() {
   const [isLoading, setIsLoading] = useState(true);
   return (
     <SafeAreaView style={styles.container}>

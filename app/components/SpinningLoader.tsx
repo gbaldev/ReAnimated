@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Skia, Canvas, Group, Path, SweepGradient, BlurMask, vec } from '@shopify/react-native-skia';
 import { useEffect } from 'react';
 import { View } from 'react-native';
-import Animated, { Easing, useSharedValue, useDerivedValue, interpolate, withRepeat, withTiming, FlipInEasyY, FlipOutEasyY, runOnJS } from 'react-native-reanimated';
+import Animated, { Easing, useSharedValue, useDerivedValue, interpolate, withRepeat, withTiming, FlipInEasyY, runOnJS } from 'react-native-reanimated';
 
 
 interface SpinningLoaderProps {
