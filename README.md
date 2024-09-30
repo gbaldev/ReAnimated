@@ -176,13 +176,11 @@ Description: The Spinning Loader component demonstrates the integration of React
 
 ### 15. Microphone Button
 
+https://github.com/user-attachments/assets/b15158da-a401-4521-b4c6-011fbb4d6081
+
 Description: The Interactive Microphone Button component demonstrates the integration of React Native Gesture Handler, Skia, and Reanimated to create a responsive and visually dynamic microphone control.
 
 ## Getting Started
-
-
-https://github.com/user-attachments/assets/b15158da-a401-4521-b4c6-011fbb4d6081
-
 
 1. Clone the repository
 2. Run `npm install` or `yarn install` to install dependencies
